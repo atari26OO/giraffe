@@ -10,7 +10,7 @@ Instructions:
 6. visit http://localhost:3000/devices and enter data in values and send
 7. visit http://localhost:3000/client/1 and view real-time data
 8. visit http://localhost:3000/simulator and start simulator
-9. visit http://localhost:3000/client/1 again and view real-time data
+9. visit client again and view real-time data
 10. stop simulator
 
 Notes:
