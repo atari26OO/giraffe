@@ -3,8 +3,8 @@
 Instruction:
 
 1. download (and unzip) repository
-2. run: node install
-3. run: node bin/www or nodemon bin/www or npm start
+2. run: npm install
+3. run: npm start or node bin/www (or nodemon bin/www)
 
 Notes:
 
