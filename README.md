@@ -1,6 +1,6 @@
 # giraffe_v1.0.0
 
-Instruction:
+Instructions:
 
 1. download (and unzip) giraffe_v1.0.0 repository
 2. run node.js and go to path with downloaded code
