@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head lang='en'>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='https://cdn.socket.io/socket.io-3.0.1.min.js'></script>
+
+    <script>
+
+      var socket = io('http://localhost:3000'); //<!-- use port var instead? -->
+      socket.on('connection');
+      socket.on('message', function(message) {
+        receiveMessage(message)
+      });
+
+      var receiveMessage = function(message) {
+
+        // parse JSON
+        var messageJSON = JSON.parse(message);
+        var id = messageJSON.id;
+        var name = messageJSON.name;
+        var value = messageJSON.value;
+        var timestamp = messageJSON.timestamp;
+
+        // date and time
+        var date = new Date(parseInt(timestamp));
+        var datetime = (date.toUTCString().match(/(\d\d:\d\d:\d\d)/)[0] + ' ' + date.toDateString() + ' UTC').replaceAll(' ', '&nbsp;');
+        //console.log(datetime);
+
+        switch(name) { // for demo only... perhaps use an array of devices
+          case 'Load': // Load
+            document.getElementById('load_id').innerHTML = id;
+            document.getElementById('load_name').innerHTML = name;
+            document.getElementById('load_value').innerHTML = value;
+            document.getElementById('load_datetime').innerHTML = datetime;
+            break;
+          case 'Block Height': // Block Height
+            document.getElementById('bh_id').innerHTML = id;
+            document.getElementById('bh_name').innerHTML = name;
+            document.getElementById('bh_value').innerHTML = value;
+            document.getElementById('bh_datetime').innerHTML = datetime;
+            break;
+          case 'Pressure': // Pressure
+            document.getElementById('pressure_id').innerHTML = id;
+            document.getElementById('pressure_name').innerHTML = name;
+            document.getElementById('pressure_value').innerHTML = value;
+            document.getElementById('pressure_datetime').innerHTML = datetime;
+            break;
+          default:
+            // nothing
+        }
+
+      }
+
+    </script>
+
+  </head>
+  <body>
+
+    <h1>{{ title }} {{client_id}}</h1>
+
+    <table> <!-- awwwkkk... not a table.. still a tribute to HTML1.0-->
+      <tr>
+        <th colspan=2>Device</th>
+        <th>ID</th>
+        <th>Value</th>
+        <th>Date and Time</th>
+      </tr>
+      <tr>
+        <td><img src='/images/load_64.png' alt='load' /></td> <!-- hardcoded for demo -->
+        <td><span id='load_name'>{{load_name}}</span></td>
+        <td><span id='load_id'></span></td>
+        <td><span id='load_value'></span></td>
+        <td><span id='load_datetime'></span></td>
+      </tr>
+      <tr>
+        <td><img src='/images/blockheight_64.png' alt='load' /></td>
+        <td><span id='bh_name'>{{blockheight_name}}</span></td>
+        <td><span id='bh_id'></span></td>
+        <td><span id='bh_value'></span></td>
+        <td><span id='bh_datetime'></span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><img src='/images/pressure_64.png' alt='load' /></td>
+        <td><span id='pressure_name'>{{pressure_name}}</span></td>
+        <td><span id='pressure_id'></span></td>
+        <td><span id='pressure_value'></span></td>
+        <td><span id='pressure_datetime'></span></td>
+        <td></td>
+      </tr>
+    </table>
+
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head lang='en'>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='https://cdn.socket.io/socket.io-3.0.1.min.js'></script>
+
+    <script>
+
+      var socket = io('http://localhost:3000'); // use port var instead?
+      //socket.on('connection', function() {});
+      socket.on('connection');
+      socket.on('message', function(data) {
+        // nothing
+      });
+
+      var sendMessage = function(device) {
+        var id = document.getElementById(device + '_id').innerHTML; // can also use hidden input
+        var name = document.getElementById(device + '_name').innerHTML;
+        var value = document.getElementById(device + '_value').value;
+        // JSON data
+        var messageJSON = '{"id":"' + id + '",' +
+                             '"name":"' + name + '",' +
+                             '"value":"' + value + '",' +
+                             '"timestamp":"' + Date.now() + '"}';
+        socket.emit('message', messageJSON);
+      }
+
+    </script>
+
+  </head>
+  <body>
+
+    <h1>{{ title }}</h1>
+
+    <table> <!-- awwwkkk... not a table.. still a tribute to HTML1.0-->
+      <tr>
+        <th colspan=2>Device</th>
+        <th>ID</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td><img src='/images/load_64.png' alt='load' /></td> <!-- hardcoded for demo -->
+        <td><span id='load_name'>{{load_name}}</span></td>
+        <td><span id='load_id'>{{load_id}}</span></td>
+        <td><input id='load_value' type='text' value='{{load_value}}'></td>
+        <td><button onclick='sendMessage("load")'>Send Load Data</button></td> <!-- jQuery? -->
+      </tr>
+      <tr>
+        <td><img src='/images/blockheight_64.png' alt='load' /></td>
+        <td><span id='bh_name'>{{blockheight_name}}</span></td>
+        <td><span id='bh_id'>{{blockheight_id}}</span></td>
+        <td><input id='bh_value' type='text' value='{{blockheight_value}}'></td>
+        <td><button onclick='sendMessage("bh")'>Send Block Height Data</button></td>
+      </tr>
+      <tr>
+        <td><img src='/images/pressure_64.png' alt='load' /></td>
+        <td><span id='pressure_name'>{{pressure_name}}</span></td>
+        <td><span id='pressure_id'>{{pressure_id}}</span></td>
+        <td><input id='pressure_value' type='text' value='{{pressure_value}}'></td>
+        <td><button onclick='sendMessage("pressure")'>Send Pressure Data</button></td>
+      </tr>
+    </table>
+
+    <span id='data'></span>
+
+  </body>
+</html>
