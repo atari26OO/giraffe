@@ -71,6 +71,10 @@
 
     <h1>{{ title }}</h1>
 
+    <button id='start' onclick='startSimulator()'>Start Simulator</button> <!-- jQuery -->
+    <button id='stop' onclick='stopSimulator()' disabled>Stop Simulator</button>
+    <br/><br/>
+
     <table> <!-- awwwkkk... not a table.. still a tribute to HTML1.0-->
       <tr>
         <th colspan=2>Device</th>
@@ -96,10 +100,6 @@
         <td><input id='pressure_value' type='text' value='{{pressure_value}}' readOnly></td>
       </tr>
     </table>
-
-    <br/>
-    <button id='start' onclick='startSimulator()'>Start Simulator</button> <!-- jQuery -->
-    <button id='stop' onclick='stopSimulator()' disabled>Stop Simulator</button>
 
   </body>
 </html>

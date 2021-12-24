@@ -97,9 +97,12 @@ function onListening() {
 var io = require('socket.io')(server);
 
 io.on('connection', function(socket) {
- console.log('connected: ' + socket.id);
- socket.on('message', function(message) {
-   console.log('socket message: ' + message);
-   socket.broadcast.emit('message', message); // emit to all (except this id) including devices?
- });
+  console.log('connected: ' + socket.id);
+  socket.on('message', function(message) {
+    console.log('socket message: ' + message);
+    socket.broadcast.emit('message', message); // emit to all (except this id) including devices?
+  });
+  /*socket.on('disconnect', function(message) {
+    console.log('socket message: ' + message);
+  });*/
 });
