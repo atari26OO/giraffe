@@ -23,4 +23,4 @@ Notes:
 
 -had the device names as Load, Block Height, Pressure
 
--discuss single for double quotes?
+-discuss single vs. double quotes?
