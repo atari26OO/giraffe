@@ -6,7 +6,7 @@ Instructions:
 2. run node.js and go to path with downloaded code
 3. command: npm install
 4. command: npm start or node bin/www (or nodemon bin/www)
-5. visit http://localhost:3000/ and open links in different tabs
+5. visit http://localhost:3000/ and open links in different tabs or...
 6. visit http://localhost:3000/devices and enter data in values and send
 7. visit http://localhost:3000/client/1 and view real-time data
 8. visit http://localhost:3000/simulator and start simulator
