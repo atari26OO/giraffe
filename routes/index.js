@@ -33,7 +33,7 @@ router.get('/client', function (req, res) {
 
 router.get('/client/:client_id', function (req, res) {
   //console.log(req.query);
-  console.log(req.params);
+  //console.log(req.params);
   res.render('client', { // here instead of controller for demo
     title : 'Client ',
     client_id : req.params.client_id,
