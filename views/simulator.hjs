@@ -15,9 +15,9 @@
       });
 
       var sendMessage = function(device) {
-        var id = document.getElementById(device + '_id').innerHTML; // can also use hidden input
-        var name = document.getElementById(device + '_name').innerHTML;
-        var value = document.getElementById(device + '_value').value;
+        var id = document.querySelector('#' + device + '_id').innerHTML; // can also use hidden input
+        var name = document.querySelector('#' + device + '_name').innerHTML;
+        var value = document.querySelector('#' + device + '_value').value;
         // JSON data
         var messageJSON = '{"id":"' + id + '",' +
                           '"name":"' + name + '",' +
@@ -28,8 +28,8 @@
 
       var startSimulator = function() {
         //toggle buttons
-        document.getElementById('stop').disabled = false;
-        document.getElementById('start').disabled = true;
+        document.querySelector('#stop').disabled = false;
+        document.querySelector('#start').disabled = true;
         // random devices and values
         const devicesNumber = 3;
         const valuesMax = 1000;
@@ -39,15 +39,15 @@
         //console.log(randomValue);
         switch(randomDevice) { // for demo only... perhaps use an array of devices
           case 0: // Load
-            document.getElementById('load' + '_value').value = randomValue;
+            document.querySelector('#load' + '_value').value = randomValue;
               sendMessage('load');
             break;
           case 1: // Block Height
-            document.getElementById('bh' + '_value').value = randomValue;
+            document.querySelector('#bh' + '_value').value = randomValue;
               sendMessage("bh");
             break;
           case 2: // Pressure
-            document.getElementById('pressure' + '_value').value = randomValue;
+            document.querySelector('#pressure' + '_value').value = randomValue;
               sendMessage("pressure");
             break;
           default:
@@ -58,8 +58,8 @@
 
       var stopSimulator = function() {
         // toggle buttons
-        document.getElementById('start').disabled = false;
-        document.getElementById('stop').disabled = true;
+        document.querySelector('#start').disabled = false;
+        document.querySelector('#stop').disabled = true;
         // stop timeout
         clearTimeout(myTimeout);
       }
@@ -71,7 +71,7 @@
 
     <h1>{{ title }}</h1>
 
-    <button id='start' onclick='startSimulator()'>Start Simulator</button> <!-- jQuery -->
+    <button id='start' onclick='startSimulator()'>Start Simulator</button> <!-- jQuery? -->
     <button id='stop' onclick='stopSimulator()' disabled>Stop Simulator</button>
     <br/><br/>
 

@@ -14,9 +14,9 @@
       });
 
       var sendMessage = function(device) {
-        var id = document.getElementById(device + '_id').innerHTML; // can also use hidden input
-        var name = document.getElementById(device + '_name').innerHTML;
-        var value = document.getElementById(device + '_value').value;
+        var id = document.querySelector('#' + device + '_id').innerHTML; // can also use hidden input
+        var name = document.querySelector('#' + device + '_name').innerHTML;
+        var value = document.querySelector('#' + device + '_value').value;
         // JSON data
         var messageJSON = '{"id":"' + id + '",' +
                              '"name":"' + name + '",' +

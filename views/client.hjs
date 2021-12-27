@@ -29,22 +29,22 @@
 
         switch(name) { // for demo only... perhaps use an array of devices
           case 'Load': // Load
-            document.getElementById('load_id').innerHTML = id;
-            document.getElementById('load_name').innerHTML = name;
-            document.getElementById('load_value').innerHTML = value;
-            document.getElementById('load_datetime').innerHTML = datetime;
+            document.querySelector('#load_id').innerHTML = id;
+            document.querySelector('#load_name').innerHTML = name;
+            document.querySelector('#load_value').innerHTML = value;
+            document.querySelector('#load_datetime').innerHTML = datetime;
             break;
           case 'Block Height': // Block Height
-            document.getElementById('bh_id').innerHTML = id;
-            document.getElementById('bh_name').innerHTML = name;
-            document.getElementById('bh_value').innerHTML = value;
-            document.getElementById('bh_datetime').innerHTML = datetime;
+            document.querySelector('#bh_id').innerHTML = id;
+            document.querySelector('#bh_name').innerHTML = name;
+            document.querySelector('#bh_value').innerHTML = value;
+            document.querySelector('#bh_datetime').innerHTML = datetime;
             break;
           case 'Pressure': // Pressure
-            document.getElementById('pressure_id').innerHTML = id;
-            document.getElementById('pressure_name').innerHTML = name;
-            document.getElementById('pressure_value').innerHTML = value;
-            document.getElementById('pressure_datetime').innerHTML = datetime;
+            document.querySelector('#pressure_id').innerHTML = id;
+            document.querySelector('#pressure_name').innerHTML = name;
+            document.querySelector('#pressure_value').innerHTML = value;
+            document.querySelector('#pressure_datetime').innerHTML = datetime;
             break;
           default:
             // nothing
