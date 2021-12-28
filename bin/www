@@ -100,7 +100,8 @@ io.on('connection', function(socket) {
   console.log('connected: ' + socket.id);
   socket.on('message', function(message) {
     console.log('socket message: ' + message);
-    socket.broadcast.emit('message', message); // emit to all (except this id) including devices?
+    // broadcast emit to all (except this id) including devices?
+    socket.broadcast.emit('message', message);
   });
   /*socket.on('disconnect', function(message) {
     console.log('socket message: ' + message);

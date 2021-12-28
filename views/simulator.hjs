@@ -8,7 +8,7 @@
     <script>
       var myTimeout; // just making it global
 
-      var socket = io('http://localhost:3000'); // use port var instead?
+      var socket = io('ws://localhost:3000'); // use port var instead?
       socket.on('connection');
       socket.on('message', function(data) {
         // nothing

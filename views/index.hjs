@@ -3,7 +3,6 @@
   <head lang='en'>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src='https://cdn.socket.io/socket.io-3.0.1.min.js'></script>
   </head>
   <body>
     <h1>{{ title }}</h1>
